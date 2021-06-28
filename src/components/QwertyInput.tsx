@@ -9,11 +9,22 @@ function QwertyInput(): JSX.Element {
     // better: setText(prev => prev + letter);
   }
 
+  const handleBackspace = () => {
+    const textMinusLast = text.slice(0, text.length - 1);
+    setText(textMinusLast)
+    // better:
+    // setText(prev => {
+    //   const prevMinusLast = prev.slice(0, prev.length - 1)
+    //   return prevMinusLast
+    // })
+  }
+
   return (
     <>
       <input
         value={text}
-        readOnly /* see what happens if you remove this prop */
+        readOnly /* shorthand for readOnly={true} */
+        /* see what happens if you remove the readOnly prop */
       />
       <button onClick={() => addLetter('Q')}>Q</button>
       <button onClick={() => addLetter('W')}>W</button>
@@ -25,6 +36,9 @@ function QwertyInput(): JSX.Element {
       <button onClick={() => addLetter('I')}>I</button>
       <button onClick={() => addLetter('O')}>O</button>
       <button onClick={() => addLetter('P')}>P</button>
+      <br />
+      <button onClick={handleBackspace}>Backspace</button>
+      <button onClick={() => setText('')}>Clear all</button>
       <WordDescription wordToDescribe={text} />
     </>
   )
