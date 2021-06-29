@@ -23,8 +23,6 @@ function QwertyInput(): JSX.Element {
     <>
       <input
         value={text}
-        readOnly /* shorthand for readOnly={true} */
-        /* see what happens if you remove the readOnly prop */
       />
       <button onClick={() => addLetter('Q')}>Q</button>
       <button onClick={() => addLetter('W')}>W</button>
