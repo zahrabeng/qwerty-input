@@ -1,4 +1,4 @@
-export function isSpecialChar(word: string): boolean{
+export function isSpecialChar(word: string):boolean|undefined{
     const specialChars = ["#" , "!", "?"]
     for (const char of word){
         if (specialChars.includes(char)){
@@ -7,5 +7,4 @@ export function isSpecialChar(word: string): boolean{
             return false
         }
     }
-
 }
