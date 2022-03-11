@@ -1,4 +1,5 @@
 import { hasAVowel } from "../utils/hasAVowel"
+import {isSpecialChar} from "../utils/isSpecialChar"
 
 interface WordDescriptionProps {
   wordToDescribe: string;
@@ -9,11 +10,14 @@ function WordDescription({ wordToDescribe }: WordDescriptionProps): JSX.Element 
   const containsAVowel = hasAVowel(wordToDescribe);
   const hasTheLetterQ = wordToDescribe.toLowerCase().match('q');
 
+  const hasSpecialChar = isSpecialChar(wordToDescribe)
+
   return (
     <ul>
       {hasAtLeastFiveCharacters && <li>Has at least five characters</li>}
       {containsAVowel && <li>Contains a vowel</li>}
       {hasTheLetterQ && <li>Contains the letter Q</li>}
+      {hasSpecialChar && <li>Contains special character</li>}
     </ul>
   )
 }
